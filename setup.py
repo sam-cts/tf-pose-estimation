@@ -28,7 +28,8 @@ REQUIRED_PACKAGES = [
     'slidingwindow >= 0.0.13',
     'tqdm >= 4.23.4',
     'tensorpack >= 0.8.5',
-    'pycocotools'
+    'pycocotools',
+    'numpy >= 1.19.1'
 ]
 
 DEPENDENCY_LINKS = [
