@@ -40,6 +40,8 @@ EXT = Extension('_pafprocess',
                 sources=[
                     'tf_pose/pafprocess/pafprocess_wrap.cpp',
                     'tf_pose/pafprocess/pafprocess.cpp',
+                    'tf_pose/pafprocess/numpy.i',
+                    'tf_pose/pafprocess/pafprocess.i'
                 ],
                 swig_opts=['-c++'],
                 include_dirs=[np.get_include()])
