@@ -36,15 +36,13 @@ DEPENDENCY_LINKS = [
     'git+https://github.com/ppwwyyxx/tensorpack.git#egg=tensorpack',
 ]
 
-EXT = Extension('_pafprocess',
+EXT = Extension('tf_pose._pafprocess',
                 sources=[
-                    'tf_pose/pafprocess/pafprocess_wrap.cpp',
                     'tf_pose/pafprocess/pafprocess.cpp',
-                    'tf_pose/pafprocess/numpy.i',
                     'tf_pose/pafprocess/pafprocess.i'
                 ],
                 swig_opts=['-c++'],
-                include_dirs=[np.get_include()])
+                include_dirs=[np.get_include(), '.'])
 
 setuptools.setup(
     name='tf-pose',
@@ -58,10 +56,10 @@ setuptools.setup(
     author_email='ildoo@ildoo.net',
     license='Apache License 2.0',
     package_dir={'tf_pose_data': 'models'},
+    ext_modules=[EXT],
     packages=['tf_pose_data'] +
              [pkg_name for pkg_name in setuptools.find_packages()  # main package
               if 'tf_pose' in pkg_name],
-    ext_modules=[EXT],
     package_data={'tf_pose_data': ['graph/cmu/graph_opt.pb',
                                    'graph/mobilenet_thin/graph_opt.pb']},
     py_modules=[
