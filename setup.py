@@ -36,7 +36,7 @@ DEPENDENCY_LINKS = [
     'git+https://github.com/ppwwyyxx/tensorpack.git#egg=tensorpack',
 ]
 
-EXT = Extension('_pafprocess',
+EXT = Extension('tf_pose.pafprocess._pafprocess',
                 sources=[
                     'tf_pose/pafprocess/pafprocess.cpp',
                     'tf_pose/pafprocess/pafprocess.i'
