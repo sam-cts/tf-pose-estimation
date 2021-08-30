@@ -41,7 +41,7 @@ EXT = Extension('tf_pose.pafprocess._pafprocess',
                     'tf_pose/pafprocess/pafprocess.cpp',
                     'tf_pose/pafprocess/pafprocess.i'
                 ],
-                swig_opts=['-python','-c++'],
+                swig_opts=['-c++'],
                 include_dirs=[np.get_include(), '.'])
 
 setuptools.setup(
