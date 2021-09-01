@@ -6,6 +6,7 @@ import os
 import subprocess
 import setuptools
 from distutils.core import setup, Extension
+from distutils.command import build_ext
 
 import numpy as np
 
@@ -65,4 +66,5 @@ setuptools.setup(
     py_modules=[
         "pafprocess"
     ],
-    zip_safe=False)
+    zip_safe=False,
+    cmdclass={'build_ext':build_ext})
