@@ -6,6 +6,7 @@ import os
 import subprocess
 import setuptools
 from distutils.core import setup, Extension
+from distutils.command.install import install as _install
 
 import numpy as np
 
@@ -44,10 +45,10 @@ EXT = Extension('tf_pose.pafprocess._pafprocess',
                 swig_opts=['-c++'],
                 include_dirs=[np.get_include(), '.'])
 
-class Build_ext_first(setuptools.command.install.install):
+class Build_ext_first(_install):
     def run(self):
         self.run_command("build_ext")
-        return setuptools.command.install.install.run(self)
+        return _install.run(self)
 
 setuptools.setup(
     name='tf-pose',
